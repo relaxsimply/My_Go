@@ -92,16 +92,17 @@ func main() {
 
 	//Вывести число как строку
 
+	// число -----> строка
 	i := 555
 	s1 := strconv.Itoa(i)
 	fmt.Println(s1)
-
 	var i2 float64 = 444.123123
 	var i3 = strconv.FormatFloat(i2, 'f', 6, 64)
 	fmt.Println(i3)
 
 	//Приведение строки к числу
 
+	// строка ------> число
 	str10 := "123123.123"
 	//str10 := "13123"
 	//num, err := strconv.Atoi(str10)
@@ -111,5 +112,27 @@ func main() {
 		fmt.Println("Ошибка", err)
 	} else {
 		fmt.Println(num)
+
 	}
+
+	p := new(int)
+	fmt.Println(*p)
+
+	*p = 123
+	fmt.Println(*p)
+
+	//Ввод данных от пользователя
+	fmt.Scan()
+	fmt.Scanln()
+
+	var firstname string
+	var sername string
+	fmt.Scan(&firstname)
+	fmt.Println(firstname)
+	fmt.Printf("%s\n", firstname)
+	fmt.Scan(&sername)
+	fmt.Printf("%s, %s", firstname, sername)
+
+	//Тип any или interface{}
+
 }
