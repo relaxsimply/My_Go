@@ -135,4 +135,37 @@ func main() {
 
 	//Тип any или interface{}
 
+	// Калькулятор ИМТ
+	var mass int
+	var len int
+
+	fmt.Println("Введите ваш вес (кг)")
+	_, err1 := fmt.Scan(&mass)
+	if err1 != nil || mass < 0 || mass > 200 {
+		fmt.Println("Некорректные данные")
+		return
+	}
+
+	fmt.Println("Введите ваш рост (см)")
+	_, err2 := fmt.Scan(&len)
+	if err2 != nil || len < 0 || len > 210 {
+		fmt.Println("Некорректные данные")
+		return
+	}
+
+	var imt float64 = (float64(mass) / (math.Pow(float64(len), 2)))
+	fmt.Print("Ваш ИМТ: ", imt)
+
+	var cat string = "non"
+
+	switch {
+	case imt < 18.5:
+		cat = "Недостаточный вес"
+	case (18.5 <= imt && imt < 25):
+		cat = "Нормальный вес"
+	case imt >= 30:
+		cat = "Ожирение"
+	}
+	fmt.Print(" Категория: ", cat)
+
 }
